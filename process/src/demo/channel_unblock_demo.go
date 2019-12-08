@@ -17,9 +17,8 @@ func main() {
 		fmt.Println("default")
 	}
 
-	msg := "msg2"
 	select {
-	case messages <- msg:
+	case messages <- "msg2":
 		fmt.Println("send message to messages")
 	default:
 		fmt.Println("un send message to messages")
