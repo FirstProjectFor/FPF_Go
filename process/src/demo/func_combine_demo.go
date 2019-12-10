@@ -1,0 +1,81 @@
+package main
+
+import "fmt"
+
+import "strings"
+
+func main() {
+	var strArr = []string{"peach", "apple", "pear", "plum"}
+	fmt.Println("Index of apple: ", Index(strArr, "apple"))
+	fmt.Println("Include pear ? ", Include(strArr, "pear"))
+	fmt.Println("any start with 'p'", Any(strArr, func(s string) bool {
+		return strings.HasPrefix(s, "p")
+	}))
+	fmt.Println("any start with 'm'", Any(strArr, func(s string) bool {
+		return strings.HasPrefix(s, "m")
+	}))
+	fmt.Println("all start with 'p'", All(strArr, func(s string) bool {
+		return strings.HasPrefix(s, "p")
+	}))
+
+	fmt.Println("map to Upper'", Map(strArr, func(s string) string {
+		return strings.ToUpper(s)
+	}))
+
+	fmt.Println("map to Upper'", Map(strArr, strings.ToUpper))
+}
+
+// Index
+func Index(vs []string, t string) int {
+	for i, v := range vs {
+		if t == v {
+			return i
+		}
+	}
+	return -1
+}
+
+// Include
+func Include(vs []string, t string) bool {
+	return Index(vs, t) >= 0
+}
+
+// Any
+func Any(vs []string, f func(string) bool) bool {
+	for _, v := range vs {
+		if f(v) {
+			return true
+		}
+	}
+	return false
+}
+
+// ALl
+func All(vs []string, f func(string) bool) bool {
+	for _, v := range vs {
+		if !f(v) {
+			return false
+		}
+	}
+	return true
+}
+
+// Filter
+func Filter(vs []string, f func(string) bool) []string {
+	vsf := make([]string, 0)
+	for _, v := range vs {
+		if f(v) {
+			vsf = append(vsf, v)
+		}
+	}
+	return vsf
+}
+
+//  MAP
+func Map(vs []string, f func(string) string) []string {
+	vsm := make([]string, len(vs))
+	for i, v := range vs {
+		vsm[i] = f(v)
+	}
+	return vsm
+}

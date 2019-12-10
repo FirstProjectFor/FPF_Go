@@ -10,4 +10,5 @@ func main() {
 		panic(err)
 	}
 
+	panic("test")
 }
