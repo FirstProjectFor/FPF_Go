@@ -16,6 +16,11 @@ func main() {
 	state := flag.Bool("state", true, "user state")
 	age := flag.Int("age", 26, "user age")
 
+	a1 := os.Args[1:]
+	a2 := os.Args[1:]
+	fmt.Println(&a1)
+	fmt.Println(&a2)
+
 	flag.Parse()
 
 	fmt.Println("name: ", *name)
