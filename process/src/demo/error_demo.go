@@ -8,9 +8,10 @@ import (
 func testError(arg int) (int, error) {
 	if arg%2 == 0 {
 		return -1, errors.New("测试错误")
-	} else {
-		return 1, nil
 	}
+	
+	return 1, nil
+	
 }
 
 func main() {

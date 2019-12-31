@@ -25,7 +25,7 @@ func main() {
 	fmt.Println("map to Upper'", Map(strArr, strings.ToUpper))
 }
 
-// Index
+// Index index
 func Index(vs []string, t string) int {
 	for i, v := range vs {
 		if t == v {
@@ -35,12 +35,12 @@ func Index(vs []string, t string) int {
 	return -1
 }
 
-// Include
+// Include include
 func Include(vs []string, t string) bool {
 	return Index(vs, t) >= 0
 }
 
-// Any
+// Any any
 func Any(vs []string, f func(string) bool) bool {
 	for _, v := range vs {
 		if f(v) {
@@ -50,7 +50,7 @@ func Any(vs []string, f func(string) bool) bool {
 	return false
 }
 
-// ALl
+// ALl all
 func All(vs []string, f func(string) bool) bool {
 	for _, v := range vs {
 		if !f(v) {
@@ -60,7 +60,7 @@ func All(vs []string, f func(string) bool) bool {
 	return true
 }
 
-// Filter
+// Filter filter
 func Filter(vs []string, f func(string) bool) []string {
 	vsf := make([]string, 0)
 	for _, v := range vs {
@@ -71,7 +71,7 @@ func Filter(vs []string, f func(string) bool) []string {
 	return vsf
 }
 
-//  MAP
+// MAP map
 func Map(vs []string, f func(string) string) []string {
 	vsm := make([]string, len(vs))
 	for i, v := range vs {

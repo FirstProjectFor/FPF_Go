@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-//inner func
+//InitNum func
 func InitNum() func() int {
 	i := 0
 	return func() int {

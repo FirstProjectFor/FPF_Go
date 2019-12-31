@@ -4,6 +4,7 @@ import "fmt"
 
 import "sort"
 
+// ByLength string array
 type ByLength []string
 
 // Len
