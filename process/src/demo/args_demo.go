@@ -18,8 +18,8 @@ func main() {
 
 	a1 := os.Args[1:]
 	a2 := os.Args[1:]
-	fmt.Println(&a1)
-	fmt.Println(&a2)
+	fmt.Println(a1)
+	fmt.Println(a2)
 
 	flag.Parse()
 
