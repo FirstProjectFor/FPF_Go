@@ -4,13 +4,25 @@ import "fmt"
 
 func main() {
 
-	message := make(chan string)
+	naturals := make(chan int64)
+	squares := make(chan int64)
+
+	var x int64 = 0
 
 	go func() {
-		message <- "ping"
-		message <- "pong"
+		for ; ; x++ {
+			naturals <- x
+		}
 	}()
 
-	fmt.Println("msg = ", <-message)
-	fmt.Println("msg = ", <-message)
+	go func() {
+		for {
+			x := <-naturals
+			squares <- x * x
+		}
+	}()
+
+	for {
+		fmt.Println(<-squares)
+	}
 }
