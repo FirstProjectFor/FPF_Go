@@ -17,6 +17,14 @@ func (f fruit) String() string {
 	return fmt.Sprint("fruit:", f.name, " color: ", f.c)
 }
 
+func (f fruit) changeNameUseReference() {
+	f.name = "f_c_r"
+}
+
+func (f *fruit) changeNameUsePoint() {
+	f.name = "f_c_p"
+}
+
 func (c color) String() string {
 	return c.name
 }
@@ -39,6 +47,18 @@ func main() {
 
 	changeUsePoint(&f)
 	//fruit:f_p color: f_c_p
+	fmt.Println("After Change User Pointer: ", f)
+	//初始化
+	f = fruit{}
+	f.name = "f"
+	f.c.name = "f"
+	//fruit:f color: f
+	fmt.Println("Before Change: ", f)
+	f.changeNameUseReference()
+	//fruit:f color: f
+	fmt.Println("After Change User Reference: ", f)
+	f.changeNameUsePoint()
+	//fruit:f_c_p color: f
 	fmt.Println("After Change User Pointer: ", f)
 
 	//测试参数为slice
