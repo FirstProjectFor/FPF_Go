@@ -5,12 +5,12 @@ import "bytes"
 import "fmt"
 
 func main() {
-	fmt.Println(intsToString([]int{1, 2, 3, 4, 5, 6, 7}))
+	fmt.Println(intToString([]int{1, 2, 3, 4, 5, 6, 7}))
 	fmt.Println(comm("123"))
 	fmt.Println(comm("123456789"))
 }
 
-func intsToString(numbers []int) string {
+func intToString(numbers []int) string {
 
 	var buf bytes.Buffer
 	buf.WriteByte('[')
