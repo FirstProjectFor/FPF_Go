@@ -17,5 +17,6 @@ func main() {
 
 	time.Sleep(time.Millisecond * 1600)
 	ticker.Stop()
-	fmt.Println("ticker stop ", time.Now())
+	fmt.Println("ticker stop ", time.Now().Format("2006-01-02 15:04:05"))
+
 }

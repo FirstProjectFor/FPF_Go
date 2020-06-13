@@ -15,7 +15,7 @@ type Cache struct {
 }
 
 // LookUp get cache value
-func LookUp(key string) (value string) {
+func lookUp(key string) (value string) {
 	cache.Lock()
 	value = cache.mapping[key]
 	cache.Unlock()
