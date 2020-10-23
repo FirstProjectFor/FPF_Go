@@ -3,12 +3,10 @@ module github.com/xiaotian/demo
 go 1.13
 
 require (
-<<<<<<< HEAD
 	github.com/michaelklishin/rabbit-hole/v2 v2.2.0
 	github.com/streadway/amqp v1.0.0
 	github.com/willf/bitset v1.1.11
 	golang.org/x/net v0.0.0-20200602114024-627f9648deb9
-=======
 	github.com/creack/pty v1.1.11 // indirect
 	github.com/kr/pty v1.1.8 // indirect
 	github.com/kr/text v0.2.0 // indirect
@@ -24,5 +22,4 @@ require (
 	golang.org/x/tools v0.0.0-20200626171337-aa94e735be7f // indirect
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776 // indirect
->>>>>>> c2f6fa0f96b49b5be09193c7bb67c7eca37ac4c6
 )
