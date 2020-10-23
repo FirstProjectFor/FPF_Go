@@ -25,9 +25,8 @@ func TestUnicode(t *testing.T) {
 		fmt.Println("index: ", i, "char: ", string(c))
 	}
 
-	fmt.Println(string(30000))
+
 	fmt.Println(string("30000"))
-	fmt.Println(string(99999999999999999999999999))
 
 	fmt.Printf("% x\n", text)
 
