@@ -29,8 +29,8 @@ func TestFormat(t *testing.T) {
 	fmt.Printf("100 -> %s: %b\n", "%b", 100)
 	fmt.Printf("Pi -> %s: %f\n", "%f", math.Pi)
 	fmt.Printf("Pi -> %s: |%6.0f|\n", "%6f", math.Pi)
-	fmt.Printf("Pi -> %s: |%6.3f|\n", "%6.6f", math.Pi)
+	fmt.Printf("Pi -> %s: |%6.3f|\n", "%6.3f", math.Pi)
 	fmt.Printf("Pi -> %s: |%-6.0f|\n", "%-6f", math.Pi)
-	fmt.Printf("Pi -> %s: |%-6.3f|\n", "%-6.6f", math.Pi)
+	fmt.Printf("Pi -> %s: |%-6.3f|\n", "%-6.3f", math.Pi)
 
 }
