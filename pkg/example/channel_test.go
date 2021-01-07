@@ -103,7 +103,6 @@ func TestCloseChannel(t *testing.T) {
 	<-done
 }
 
-
 func TestUnBlock(t *testing.T) {
 
 	messages := make(chan string)
@@ -162,4 +161,26 @@ func TestTimeOut(t *testing.T) {
 	case <-time.After(time.Second * 2):
 		fmt.Println("get msg1 time out!")
 	}
+}
+
+func TestPlus(t *testing.T) {
+	const times = 100000
+
+	firstChannel := make(chan int)
+
+	var before, next chan int = nil, firstChannel
+
+	for i := 0; i < times; i++ {
+		before, next = next, make(chan int)
+		go Translate(before, next)
+	}
+
+	next <- 0
+	result := <-firstChannel
+
+	fmt.Println(result)
+}
+
+func Translate(left, right chan int) {
+	left <- 1 + <-right
 }

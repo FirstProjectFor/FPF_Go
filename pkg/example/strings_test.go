@@ -19,7 +19,11 @@ func TestString(t *testing.T) {
 	fmt.Println("replace", strings.Replace("foo", "o", "O", 3))
 	fmt.Println("Index", strings.Index("foo", "o"))
 	fmt.Println("len", len(text))
-	fmt.Println("char[1]", text[1])
 
+	fmt.Println("replace", strings.ReplaceAll("name\rname", "\r", ""))
+	fmt.Println("replace", strings.ReplaceAll("name\n\n\nname", "\n", ""))
+	fmt.Println("replace", strings.ReplaceAll("name\tname", "\t", ""))
+	fmt.Println("replace", strings.ReplaceAll("name\\name", "\\", ""))
+	fmt.Println("replace", strings.ReplaceAll("name\"name", "\"", ""))
 }
 
