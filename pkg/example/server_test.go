@@ -2,31 +2,29 @@ package demo
 
 import (
 	"fmt"
-	"net/http"
+	"log"
+	"net"
 	"testing"
-	"time"
 )
 
 func TestHttpServer(t *testing.T) {
-	err := http.ListenAndServe("127.0.0.1:8686", &helloHandle{})
+	l, err := net.Listen("tcp", ":8686")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
-	time.Sleep(time.Hour * 10000)
-}
-
-type helloHandle struct {
-}
-
-func (h *helloHandle) ServeHTTP(response http.ResponseWriter, request *http.Request) {
-	go func() {
-		host := request.Host
-		remoteAddr := request.RemoteAddr
-		info := fmt.Sprintf("host:%s,remoteAddr:%s", host, remoteAddr)
-		fmt.Println(info)
-		_, err := response.Write([]byte(info))
+	for {
+		conn, err := l.Accept()
 		if err != nil {
-			fmt.Println(err)
+			log.Fatal(err)
 		}
-	}()
+		go handleConnection(conn)
+	}
+}
+
+func handleConnection(conn net.Conn) {
+	fmt.Println("remote addr: ", conn.RemoteAddr())
+	err := conn.Close()
+	if err != nil {
+		fmt.Println(err)
+	}
 }
