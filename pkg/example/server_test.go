@@ -9,11 +9,11 @@ import (
 )
 
 func TestHttpServer(t *testing.T) {
-	log.Println("Listen")
 	udpConnect, err := net.ListenUDP("udp", &net.UDPAddr{
 		IP:   net.IPv4(127, 0, 0, 1),
 		Port: 8686,
 	})
+	log.Println("Listen on: ", udpConnect.LocalAddr())
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -21,7 +21,7 @@ func TestHttpServer(t *testing.T) {
 		bytes := make([]byte, 100)
 		log.Println("read from udp")
 		_, remoteAddr, err := udpConnect.ReadFromUDP(bytes)
-		fmt.Println("revive data: ", string(bytes))
+		log.Println("read data:", string(bytes))
 		if err != nil {
 			fmt.Println(err)
 			continue
