@@ -10,6 +10,7 @@ import (
 )
 
 func TestClient(t *testing.T) {
+	log.Println("Dial up")
 	udpConnect, err := net.DialUDP("udp", nil, &net.UDPAddr{
 		IP:   net.IPv4(127, 0, 0, 1),
 		Port: 8686,
@@ -17,16 +18,19 @@ func TestClient(t *testing.T) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Println("write data")
 	_, err = udpConnect.Write([]byte("hello i am client"))
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	log.Println("read data")
 	bytes := make([]byte, 100)
 	read, _ := udpConnect.Read(bytes)
-
 	ipAndPort := string(bytes[0:read])
 	log.Println("ipAndPort: ", ipAndPort)
+
+	//listen
 	listen(ipAndPort)
 }
 
