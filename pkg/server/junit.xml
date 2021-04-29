@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <testsuite name="Foo Suite" tests="7" failures="1" errors="0" time="0.002">
+      <testcase name="Server pending " classname="Foo Suite" time="0">
+          <skipped></skipped>
+      </testcase>
+      <testcase name="Server 消息内容 when 消息名字是 message2 内容应该是 hello2" classname="Foo Suite" time="0"></testcase>
+      <testcase name="Server over time" classname="Foo Suite" time="0">
+          <skipped></skipped>
+      </testcase>
+      <testcase name="Server measure" classname="Foo Suite" time="0.0029919"></testcase>
+      <testcase name="Server 消息内容 when 消息名字是 message1 内容应该是 hello1" classname="Foo Suite" time="0"></testcase>
+      <testcase name="Server test information" classname="Foo Suite" time="0"></testcase>
+      <testcase name="Server assert" classname="Foo Suite" time="0"></testcase>
+      <testcase name="Server skip" classname="Foo Suite" time="0">
+          <failure type="Failure">D:/work/github/FPF_Go/pkg/server/server_test.go:57&#xA;skip&#xA;D:/work/github/FPF_Go/pkg/server/server_test.go:59</failure>
+      </testcase>
+      <testcase name="Server test by" classname="Foo Suite" time="0"></testcase>
+  </testsuite>
