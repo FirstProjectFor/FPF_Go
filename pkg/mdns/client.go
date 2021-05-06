@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/hashicorp/mdns"
+	"time"
 )
 
 func main() {
@@ -15,6 +16,9 @@ func main() {
 	}()
 
 	// Start the lookup
-	mdns.Lookup("_foobar._tcp", entriesCh)
-	close(entriesCh)
+	err := mdns.Lookup("_foobar._tcp", entriesCh)
+	if err != nil {
+		panic(err)
+	}
+	time.Sleep(time.Minute * 10)
 }

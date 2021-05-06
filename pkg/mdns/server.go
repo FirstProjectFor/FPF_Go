@@ -14,6 +14,10 @@ func main() {
 	service, _ := mdns.NewMDNSService(host, "_foobar._tcp", "", "", 8000, nil, info)
 
 	// Create the mDNS server, defer shutdown
-	mdns.NewServer(&mdns.Config{Zone: service})
+	server, err := mdns.NewServer(&mdns.Config{Zone: service})
+	if err != nil {
+		panic(err)
+	}
 	time.Sleep(time.Minute * 10)
+	server.Shutdown()
 }
