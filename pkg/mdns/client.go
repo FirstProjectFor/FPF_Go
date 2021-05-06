@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/whyrusleeping/mdns"
+	"github.com/hashicorp/mdns"
 )
 
 func main() {

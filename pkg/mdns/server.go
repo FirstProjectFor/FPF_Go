@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/hashicorp/mdns"
 	"os"
 	"time"
 )
-import "github.com/whyrusleeping/mdns"
 
 func main() {
 	// Setup our service export
