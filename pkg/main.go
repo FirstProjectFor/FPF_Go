@@ -1,9 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 func main() {
-	int64()
-	fmt.Println(1 ^ 2)
 
+	err := errors.New("hello")
+
+	fmt.Println(string([]byte(err.Error())))
+
+}
+
+type EE struct {
+
+}
+
+func (receiver *EE) Error() string {
+	return ""
 }

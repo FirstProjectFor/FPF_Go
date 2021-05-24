@@ -7,9 +7,12 @@ require (
 	github.com/hashicorp/mdns v1.0.4
 	github.com/kr/text v0.2.0 // indirect
 	github.com/michaelklishin/rabbit-hole/v2 v2.2.0
+	github.com/mitchellh/go-homedir v1.1.0
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/onsi/ginkgo v1.14.0
 	github.com/onsi/gomega v1.10.1
+	github.com/spf13/cobra v1.1.3
+	github.com/spf13/viper v1.7.0
 	github.com/streadway/amqp v1.0.0
 	github.com/stretchr/testify v1.6.1
 	github.com/willf/bitset v1.1.11
