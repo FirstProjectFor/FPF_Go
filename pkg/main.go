@@ -1,22 +1,15 @@
 package main
 
 import (
-	"errors"
 	"fmt"
+	"time"
 )
 
 func main() {
-
-	err := errors.New("hello")
-
-	fmt.Println(string([]byte(err.Error())))
-
+	defer p()
+	time.Sleep(time.Second * 10)
 }
 
-type EE struct {
-
-}
-
-func (receiver *EE) Error() string {
-	return ""
+func p() {
+	fmt.Println("a")
 }
