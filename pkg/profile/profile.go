@@ -12,6 +12,15 @@ const kb = 1 << 10
 const mb = kb << 10
 
 //go:generate go tool pprof -inuse_space http://127.0.0.1:8080/debug/pprof/heap
+//go:generate go tool pprof -h
+//go:generate go tool pprof -sample_index=inuse_space http://127.0.0.1:8080/debug/pprof/heap
+//go:generate go tool pprof -sample_index=inuse_space -http=:8081 http://127.0.0.1:8080/debug/pprof/heap
+//go:generate go tool pprof -sample_index=cpu http://127.0.0.1:8080/debug/pprof/profile?seconds=30
+//go:generate go tool pprof -sample_index=cpu -http=:8081 http://127.0.0.1:8080/debug/pprof/profile?seconds=30
+//go:generate go tool pprof -sample_index=samples http://127.0.0.1:8080/debug/pprof/profile?seconds=30
+//go:generate go tool pprof -sample_index=samples -http=:8081 http://127.0.0.1:8080/debug/pprof/profile?seconds=30
+//go:generate go tool pprof http://127.0.0.1:8080/debug/pprof/goroutine
+//go:generate go tool pprof -http=:8081 http://127.0.0.1:8080/debug/pprof/goroutine
 
 func main() {
 
