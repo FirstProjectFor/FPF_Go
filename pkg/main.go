@@ -6,10 +6,21 @@ import (
 )
 
 func main() {
-	defer p()
-	time.Sleep(time.Second * 10)
-}
 
-func p() {
-	fmt.Println("a")
+	closeChain := make(chan string)
+
+	go func() {
+		time.Sleep(time.Second * 2)
+		close(closeChain)
+	}()
+
+	for {
+		select {
+		case <-closeChain:
+		default:
+			fmt.Println("default")
+			continue
+		}
+		fmt.Println("close")
+	}
 }
