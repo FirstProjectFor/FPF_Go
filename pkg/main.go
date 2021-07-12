@@ -2,25 +2,17 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"unicode/utf8"
 )
 
 func main() {
+	bytes := []byte("A")
+	fmt.Println(len(bytes))
+	bytes = []byte("ADFZ")
+	fmt.Println(len(bytes))
 
-	closeChain := make(chan string)
-
-	go func() {
-		time.Sleep(time.Second * 2)
-		close(closeChain)
-	}()
-
-	for {
-		select {
-		case <-closeChain:
-		default:
-			fmt.Println("default")
-			continue
-		}
-		fmt.Println("close")
-	}
+	s := "联通"
+	bytes = []byte(s)
+	fmt.Println(len(bytes))
+	fmt.Println(utf8.RuneCountInString(s))
 }
