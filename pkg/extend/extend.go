@@ -1,11 +1,8 @@
 package main
 
-import "fmt"
-
-type IAnimal interface {
-	GetName() string
-	GetAge() int
-}
+import (
+	"fmt"
+)
 
 type Animal struct {
 	Name string
@@ -20,21 +17,16 @@ func (p *Animal) GetAge() int {
 	return p.Age
 }
 
-type Pig struct {
-	*Animal
-}
-
-func (p *Pig) GetName() string {
-	return "pig"
-}
-
-func (p *Pig) GetAge() int {
-	return 30
-}
-
 type zoo struct {
 	*Animal
-	ian IAnimal
+}
+
+func (z *zoo) GetName() string {
+	return "zoo"
+}
+
+func (z *zoo) GetAge() int {
+	return 0
 }
 
 func main() {
@@ -42,20 +34,15 @@ func main() {
 		Age:  20,
 		Name: "animal",
 	}
-	z := zoo{
-		Animal: animal,
-		ian:    animal,
-	}
-	fmt.Println(z.GetName(), z.GetAge())
-	fmt.Println(z.ian.GetName(), z.ian.GetAge())
+	printAnimal(animal)
 
-	pig := &Pig{
-		animal,
-	}
-	fmt.Println(pig.GetName(), pig.GetAge())
+	//z := zoo{
+	//	animal,
+	//}
+	////Cannot use 'z' (type zoo) as type *Animal
+	//printAnimal(z)
+}
 
-	z = zoo{
-		ian: pig,
-	}
-	fmt.Println(z.ian.GetName(), z.ian.GetAge())
+func printAnimal(animal *Animal) {
+	fmt.Println(animal.GetName(), animal.GetAge())
 }
